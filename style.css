@@ -1,0 +1,37 @@
+:root{
+    --backGround: #969b9e;
+    --textcolor: #ffffff;
+}
+
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.leftBox {
+    width: 20%;
+    /* margin-bottom: 50%; */
+    padding: 20px;
+    height: 90vh;
+    background-color: var(--backGround);
+    color: var(--textcolor);
+}
+
+.midBox {
+    width: 20%;
+    margin-bottom: 20px;
+    padding: 20px;
+    height: 90vh;
+    background-color: var(--backGround);
+    color: var(--textcolor);
+}
+
+.rightBox{
+       margin-right: 10px;
+        padding: 20px;
+        width: 60%;
+        height: 90vh;
+        background-color: var(--backGround);
+        color: var(--textcolor);
+    }
