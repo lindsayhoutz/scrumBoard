@@ -19,3 +19,19 @@ document.querySelectorAll('.btn').forEach(buttonElement => {
     const button = bootstrap.Button.getOrCreateInstance(buttonElement)
     button.toggle()
   })
+
+  const draggable = document.getElementById('draggable');
+  const droppable = document.getElementById('droppable');
+
+  draggable.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', 'This is the data');
+  });
+
+  droppable.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  droppable.addEventListener('drop', (event) => {
+    const data = event.dataTransfer.getData('text/plain');
+    console.log(data);
+  })
