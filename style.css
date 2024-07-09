@@ -42,30 +42,7 @@
         
        
     }
-/* .columns{
-  display: flex;
-  justify-content: space-evenly;
-  gap: 50px;
-    height: 100%;
-}
-.stuck{
-  display: inline;
-  padding: 20px;
-  background-color: #000;
-  width: 100%;
-}
-.prog{
-  display: inline;
-  padding: 20px;
-  background-color: #000;
-  width: 100%;
-}
-.complete{
-  display: inline;
-  padding: 20px;
-  background-color: #000;
-  width: 100%;
-} */
+
 
 button{
 width: 100%;
