@@ -1,6 +1,11 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
+var del = document.getElementsByClassName("delete")
+var sbmtBtn = document.getElementById("sbmt")
+var stckytxt = document.getElementsByClassName("stickytext")
+var notes =  document.getElementsByClassName("note-container")
+const noteTxt = document.querySelector('#stickytext')
 
 btn.onclick = function() {
   modal.style.display = "block";
@@ -15,23 +20,15 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-document.querySelectorAll('.btn').forEach(buttonElement => {
-    const button = bootstrap.Button.getOrCreateInstance(buttonElement)
-    button.toggle()
-  })
 
-  const draggable = document.getElementById('draggable');
-  const droppable = document.getElementById('droppable');
+sbmtBtn.addEventListener("click", addElement);
 
-  draggable.addEventListener('dragstart', (event) => {
-    event.dataTransfer.setData('text/plain', 'This is the data');
-  });
 
-  droppable.addEventListener('dragover', (event) => {
-    event.preventDefault();
-  });
+function addElement() {
 
-  droppable.addEventListener('drop', (event) => {
-    const data = event.dataTransfer.getData('text/plain');
-    console.log(data);
-  })
+const para = document.createElement("p");
+const node = document.createTextNode(noteTxt.value);
+para.appendChild(node);
+const element = document.getElementById("note-container");
+element.appendChild(para);
+}

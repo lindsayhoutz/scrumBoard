@@ -1,9 +1,10 @@
 :root{
-    --backGround: #969b9e;
+    --backGround: #000000be;
     --textcolor: #ffffff;
 }
 
 .content {
+  margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     gap: 15px;
@@ -93,5 +94,12 @@ height: 10%;
         text-decoration: none;
         cursor: pointer;
       }
-      
-      
+      .c3{
+        background-color: #9E0059;
+      }
+      .comp{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        
+      }
