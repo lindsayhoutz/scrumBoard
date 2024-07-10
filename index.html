@@ -11,10 +11,18 @@
     <main class="content">
       <section class="leftBox">   
         <button type="button" id="myBtn" class="btn btn-primary btn-lg">create</button>
-        <div id="draggable" draggable="true">Drag me!</div>
         <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
       </section>
-     <section class="midBox"> <h1>Open tasks</h1> </section>
+     <section class="midBox"> <h1>Open tasks</h1>
+      <div class="note-container">
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <div class="box" draggable="true" ondragstart="drag(event)" id="drag1">Note 1</div>
+          <div class="box" draggable="true" ondragstart="drag(event)" id="drag1">Note 1</div>
+          <div class="box" draggable="true" ondragstart="drag(event)" id="drag1">Note 1</div>
+        </div>
+        
+      </div>
+     </section>
      <section class="rightBox">  
   
     
@@ -22,15 +30,18 @@
       <div class="row align-items-start bg-secondary h-100">
         <div class="border h-100 col fs-2">
           Stuck
-          <div id="droppable">Drop here!</div>
+          
+          <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
         <div class="border h-100 col fs-2">
           Progress
-          <div id="droppable">Drop here!</div>
+          <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
         </div>
         <div class="border h-100 col fs-2">
           Complete
-          <div id="droppable">Drop here!</div>
+          <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
         </div>
       </div>
     </div>
