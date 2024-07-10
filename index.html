@@ -14,11 +14,9 @@
         <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
       </section>
      <section class="midBox rounded"> <h1>Open tasks</h1> 
-      <div id="note-container" class="note" >
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <div class="box" draggable="true" ondragstart="drag(event)" id="drag1">Note 1</div>
-          <div class="box" draggable="true" ondragstart="drag(event)" id="drag1">Note 1</div>
-          <div class="box" draggable="true" ondragstart="drag(event)" id="drag1">Note 1</div>
+      <div id="noteContainer" >
+         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+       
         </div>
        
       </div>
@@ -56,6 +54,7 @@
       <p>create task</p>
       <textarea name="stickytext" id="stickytext">Enter here</textarea>
       <button type="button" id="sbmt" class="btn btn-success btn-lg">submit</button>
+      <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
     </div>
     </div>
     </main>

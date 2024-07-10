@@ -4,7 +4,7 @@ var span = document.getElementsByClassName("close")[0];
 var del = document.getElementById("delete")
 var sbmtBtn = document.getElementById("sbmt")
 var stckytxt = document.getElementsByClassName("stickytext")
-var notes =  document.getElementsByClassName("note-container")
+var notes =  document.getElementsByClassName("noteContainer")
 const noteTxt = document.querySelector('#stickytext')
 const allNotes = []
 btn.onclick = function() {
@@ -18,18 +18,27 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    sbmtBtn.style.display = "none";
+    
   }
 }
 
 sbmtBtn.addEventListener("click", addElement);
-
+ num = allNotes.lenght;
 
 function addElement() {
   modal.style.display = "none";
-const para = document.createElement("p");
-const node = document.createTextNode(noteTxt.value);
+ 
+  console.log(allNotes.length)
+const para = document.createElement("div");
+para.setAttribute("id", "drag1") ;
+para.setAttribute("class", "box note border");
+para.setAttribute("ondragstart", "drag(event)");
+para.setAttribute("draggable", "true");
+para.setAttribute("id", allNotes.length)
+const node = document.createTextNode(num + noteTxt.value);
 para.appendChild(node);
-const element = document.getElementById("note-container");
+const element = document.getElementById("noteContainer");
 element.appendChild(para);
 allNotes.push(noteTxt.value);
 console.log(allNotes)
