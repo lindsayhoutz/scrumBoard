@@ -15,23 +15,17 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-document.querySelectorAll('.btn').forEach(buttonElement => {
-    const button = bootstrap.Button.getOrCreateInstance(buttonElement)
-    button.toggle()
-  })
 
-  const draggable = document.getElementById('draggable');
-  const droppable = document.getElementById('droppable');
-
-  draggable.addEventListener('dragstart', (event) => {
-    event.dataTransfer.setData('text/plain', 'This is the data');
-  });
-
-  droppable.addEventListener('dragover', (event) => {
-    event.preventDefault();
-  });
-
-  droppable.addEventListener('drop', (event) => {
-    const data = event.dataTransfer.getData('text/plain');
-    console.log(data);
-  })
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+  
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+  
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
