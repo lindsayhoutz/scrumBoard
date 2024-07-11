@@ -8,41 +8,53 @@
     <title>scrumBoard</title>
 </head>
 <body>
-    <main class="content">
-      <section class="leftBox">   
+    <main class="content ">
+      <section class="leftBox rounded">   
         <button type="button" id="myBtn" class="btn btn-primary btn-lg">create</button>
-        <div id="draggable" draggable="true">Drag me!</div>
         <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
       </section>
-     <section class="midBox"> <h1>Open tasks</h1> </section>
-     <section class="rightBox">  
+     <section class="midBox rounded"> <h1>Open tasks</h1> 
+      <div id="noteContainer" >
+         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+       
+        </div>
+       
+      </div>
+    </section>
+     
+     <section class="rightBox rounded">  
   
     
      <div class="container text-center" style="height: 100%;">
-      <div class="row align-items-start bg-secondary h-100">
+      <div class="c3 row align-items-start  h-100">
         <div class="border h-100 col fs-2">
           Stuck
-          <div id="droppable">Drop here!</div>
+          
+          <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
         <div class="border h-100 col fs-2">
           Progress
-          <div id="droppable">Drop here!</div>
+          <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
         </div>
-        <div class="border h-100 col fs-2">
+        <div class="comp border h-100 col fs-2">
           Complete
-          <div id="droppable">Drop here!</div>
+        <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <button type="button" id="delete" class="btn btn-secondary btn-lg btn-danger">delete</button>
+          
+
         </div>
       </div>
     </div>
 
-
      <div id="myModal" class="modal">
 
-     <div class="modal-content">
+     <div class="modal-content text-bg-dark border">
       <span class="close">&times;</span>
       <p>create task</p>
-      <textarea name="stickytext" id=""></textarea>
-      <button class="btn btn-success btn-lg">submit</button>
+      <textarea name="stickytext" id="stickytext">Enter here</textarea>
+      <button type="button" id="sbmt" class="btn btn-success btn-lg">submit</button>
+      <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
     </div>
     </div>
     </main>
