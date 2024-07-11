@@ -48,17 +48,21 @@ span.onclick = function() {
 }
 delmodal.onclick = function(){
   modal.style.display = "none";
+  num = Number(noteTxt.value);
   const htmlElement = document.getElementById(noteTxt.value);
-  var idChange = document.getElementById(noteTxt.value + 1)
+  var idChange = document.getElementById((num) + 1)
   console.log(idChange)
+  console.log(num)
   htmlElement.remove();
   allNotes.splice(noteTxt.value, 1)
-  // for(i=noteTxt.value; i<allNotes.length; i++)(
- 
-  // )
-
-
-  console.log(allNotes)
+  for(i=noteTxt.value; i<allNotes.length; i++){
+   
+    idChange.id = i;
+    console.log(idChange);
+    
+ }
+ localStorage.setItem("Notes", JSON.stringify(allNotes))
+window.location.reload()
 }
 del.onclick = function(){
   modal.style.display = "block";
