@@ -10,6 +10,31 @@ var notes =  document.getElementsByClassName("noteContainer")
 const noteTxt = document.querySelector('#stickytext')
 const allNotes = ["placeholder",]
 var crtTxt = document.getElementById("createTxt")
+var storedNotes = []
+window.onload = function (){
+  console.log(1)
+  var storedNotes = JSON.parse(localStorage.getItem("Notes"))
+  console.log(storedNotes)
+  for( i = 1; i < storedNotes.length; i++){
+    const para = document.createElement("div");
+para.setAttribute("id", "drag1") ;
+para.setAttribute("class", "box note border");
+para.setAttribute("ondragstart", "drag(event)");
+para.setAttribute("draggable", "true");
+para.setAttribute("id", i)
+const node = document.createTextNode(i + ". " + storedNotes[i]);
+para.appendChild(node);
+const element = document.getElementById("noteContainer");
+element.appendChild(para);
+allNotes.push(storedNotes[i]);
+localStorage.setItem("Notes", JSON.stringify(allNotes))
+console.log(allNotes)
+  }
+  
+}
+
+
+
 btn.onclick = function() {
   modal.style.display = "block";
   delmodal.style.display = "none";
@@ -24,7 +49,16 @@ span.onclick = function() {
 delmodal.onclick = function(){
   modal.style.display = "none";
   const htmlElement = document.getElementById(noteTxt.value);
+  var idChange = document.getElementById(noteTxt.value + 1)
+  console.log(idChange)
   htmlElement.remove();
+  allNotes.splice(noteTxt.value, 1)
+  // for(i=noteTxt.value; i<allNotes.length; i++)(
+ 
+  // )
+
+
+  console.log(allNotes)
 }
 del.onclick = function(){
   modal.style.display = "block";
@@ -59,6 +93,7 @@ para.appendChild(node);
 const element = document.getElementById("noteContainer");
 element.appendChild(para);
 allNotes.push(noteTxt.value);
+localStorage.setItem("Notes", JSON.stringify(allNotes))
 console.log(allNotes)
 }
 del.addEventListener("click", removeElement);
