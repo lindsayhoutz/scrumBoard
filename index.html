@@ -11,7 +11,7 @@
     <main class="content ">
       <section class="leftBox rounded">   
         <button type="button" id="myBtn" class="btn btn-primary btn-lg">create</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
+        <button type="button" id="del" class="btn btn-secondary btn-lg btn-danger">delete</button>
       </section>
      <section class="midBox rounded"> <h1>Open tasks</h1> 
       <div id="noteContainer" >
@@ -40,7 +40,7 @@
         <div class="comp border h-100 col fs-2">
           Complete
         <div class="box" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-          <button type="button" id="delete" class="btn btn-secondary btn-lg btn-danger">delete</button>
+          <button type="button" id="Reset" class="btn btn-secondary btn-lg btn-dark">reset</button>
           
 
         </div>
@@ -51,10 +51,11 @@
 
      <div class="modal-content text-bg-dark border">
       <span class="close">&times;</span>
-      <p>create task</p>
-      <textarea name="stickytext" id="stickytext">Enter here</textarea>
+      <p id="createTxt">create task</p>
+      <p id="delTxt">Enter the number of the note you want to delete</p>
+      <textarea name="stickytext" id="stickytext" placeholder="Enter here"></textarea>
       <button type="button" id="sbmt" class="btn btn-success btn-lg">submit</button>
-      <button type="button" class="btn btn-secondary btn-lg btn-danger">delete</button>
+      <button type="button" id="delModal"class="btn btn-secondary btn-lg btn-danger">delete</button>
     </div>
     </div>
     </main>
