@@ -1,36 +1,34 @@
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-var delmodal = document.getElementById("delModal")
-var del = document.getElementById("del")
-var sbmtBtn = document.getElementById("sbmt")
-var deltxt = document.getElementById("delTxt")
-var resetBtn = document.getElementById("Reset")
-var notes =  document.getElementsByClassName("noteContainer")
+let modal = document.getElementById("myModal");
+let btn = document.getElementById("myBtn");
+let span = document.getElementsByClassName("close")[0];
+let delmodal = document.getElementById("delModal")
+let del = document.getElementById("del")
+let sbmtBtn = document.getElementById("sbmt")
+let deltxt = document.getElementById("delTxt")
+let resetBtn = document.getElementById("Reset")
+let notes =  document.getElementsByClassName("noteContainer")
 const noteTxt = document.querySelector('#stickytext')
 const allNotes = ["placeholder",]
-var crtTxt = document.getElementById("createTxt")
-var storedNotes = []
+let crtTxt = document.getElementById("createTxt")
+let storedNotes = []
 window.onload = function (){
-  console.log(1)
   var storedNotes = JSON.parse(localStorage.getItem("Notes"))
   console.log(storedNotes)
   for( i = 1; i < storedNotes.length; i++){
-    const para = document.createElement("div");
-para.setAttribute("id", "drag1") ;
-para.setAttribute("class", "box note border");
-para.setAttribute("ondragstart", "drag(event)");
-para.setAttribute("draggable", "true");
-para.setAttribute("id", i)
+    const noteElement = document.createElement("div");
+noteElement.setAttribute("id", "drag1") ;
+noteElement.setAttribute("class", "box note border");
+noteElement.setAttribute("ondragstart", "drag(event)");
+noteElement.setAttribute("draggable", "true");
+noteElement.setAttribute("id", i)
 const node = document.createTextNode(i + ". " + storedNotes[i]);
-para.appendChild(node);
+noteElement.appendChild(node);
 const element = document.getElementById("noteContainer");
-element.appendChild(para);
+element.appendChild(noteElement);
 allNotes.push(storedNotes[i]);
 localStorage.setItem("Notes", JSON.stringify(allNotes))
 console.log(allNotes)
-  }
-  
+  } 
 }
 
 
@@ -86,39 +84,36 @@ function addElement() {
   modal.style.display = "none";
  
   console.log(allNotes.length)
-const para = document.createElement("div");
-para.setAttribute("id", "drag1") ;
-para.setAttribute("class", "box note border");
-para.setAttribute("ondragstart", "drag(event)");
-para.setAttribute("draggable", "true");
-para.setAttribute("id", allNotes.length)
+const noteElement = document.createElement("div");
+noteElement.setAttribute("id", "drag1") ;
+noteElement.setAttribute("class", "box note border");
+noteElement.setAttribute("ondragstart", "drag(event)");
+noteElement.setAttribute("draggable", "true");
+noteElement.setAttribute("id", allNotes.length)
 const node = document.createTextNode(allNotes.length + ". " + noteTxt.value);
-para.appendChild(node);
+noteElement.appendChild(node);
 const element = document.getElementById("noteContainer");
-element.appendChild(para);
+element.appendChild(noteElement);
 allNotes.push(noteTxt.value);
 localStorage.setItem("Notes", JSON.stringify(allNotes))
 console.log(allNotes)
 }
-del.addEventListener("click", removeElement);
-function removeElement(){
 
-}
 
 
 function allowDrop(ev) {
     ev.preventDefault();
-  }
-  
+  } 
   function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
-  
   function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
   }
+
 resetBtn.onclick = function(){
   localStorage.clear()
+  window.location.reload()
 }
